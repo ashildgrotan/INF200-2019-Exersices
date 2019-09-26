@@ -1,7 +1,6 @@
 """
 EX01 task C. Counting letters.
 """
-from typing import Dict, Any
 
 
 def letter_freq(txt):
