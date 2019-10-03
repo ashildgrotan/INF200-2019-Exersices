@@ -106,4 +106,9 @@ def test_sorting():
     ensure that they are sorted correctly. These could be lists of
     numbers of different length or lists of strings.
     """
+    assert bubble_sort([8, 5, 3, 4, 2, 6, 1, 7]) == [1, 2, 3, 4, 5, 6, 7, 8]
+    assert bubble_sort('sorted letters') == [' ', 'd', 'e', 'e', 'e', 'l', 'o',
+                                             'r', 'r', 's', 's', 't', 't', 't']
+    assert bubble_sort(['s', 'o', 'r', 't', 'e', 'd']) == ['d', 'e', 'o', 'r',
+                                                           's', 't']
     pass
