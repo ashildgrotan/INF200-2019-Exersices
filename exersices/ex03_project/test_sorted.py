@@ -6,6 +6,9 @@ __author__ = "Åshild Grøtan"
 __email__ = "ashild.grotan@nmbu.no"
 
 
+from random import randint
+
+
 def bubble_sort(data):
     """
     Takes a list or tuple of sortable elements and sorts it by the
@@ -37,7 +40,8 @@ def test_empty():
 
 def test_single():
     """Test that the sorting function works for single-element list"""
-    pass
+    test_data = [randint(0, 10)]
+    assert len(bubble_sort(test_data)) == 1
 
 
 def test_sorted_is_not_original():
