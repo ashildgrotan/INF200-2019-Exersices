@@ -56,3 +56,8 @@ def test_original_data_unchanged():
     test_data = [1, 2, 6, 5, 3]
     found_median = median(test_data)
     assert test_data == [1, 2, 6, 5, 3]
+
+
+def test_median_of_tuples():
+    test_data = (1, 2, 3, 4, 5)
+    assert median(test_data) == 3
