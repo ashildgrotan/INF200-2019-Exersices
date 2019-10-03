@@ -29,3 +29,7 @@ def median(data):
 def test_median_of_single_element():
     test_value = [randint(0, 10)]
     assert median([test_value]) == test_value
+
+
+def test_median_of_odd_number_of_elements():
+    assert median([1, 2, 3]) == 2
