@@ -31,9 +31,8 @@ if __name__ == "__main__":
 
 def test_empty():
     """Test that the sorting function works for empty list"""
-
-
-pass
+    test_data = []
+    assert len(bubble_sort(test_data)) == 0
 
 
 def test_single():
