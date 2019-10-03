@@ -17,6 +17,8 @@ def median(data):
     :param data: An iterable of containing numbers
     :return: Median of data
     """
+    if len(data) == 0:
+        raise ValueError
     sorted_data = sorted(data)
     n = len(sorted_data)
     return (
@@ -43,3 +45,8 @@ def test_median_of_ordered_and_unordered_elements():
     assert median([1, 2, 3, 4, 5]) == 3
     assert median([5, 2, 4, 1, 3]) == 3
     assert median([5, 4, 3, 2, 1]) == 3
+
+
+def test_median_raises_value_error_on_empty_list():
+    with pytest.raises(ValueError):
+        median([])
