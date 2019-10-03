@@ -72,7 +72,9 @@ def test_original_unchanged():
 
     Now data shall still contain [3, 2, 1].
     """
-    pass
+    test_data = [3, 2, 1]
+    sorted_data = bubble_sort(test_data)
+    assert test_data == [3, 2, 1]
 
 
 def test_sort_sorted():
