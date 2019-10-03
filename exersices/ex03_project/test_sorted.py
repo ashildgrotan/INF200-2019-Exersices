@@ -111,4 +111,3 @@ def test_sorting():
                                              'r', 'r', 's', 's', 't', 't', 't']
     assert bubble_sort(['s', 'o', 'r', 't', 'e', 'd']) == ['d', 'e', 'o', 'r',
                                                            's', 't']
-    pass
