@@ -12,10 +12,10 @@ def entropy(message):
     total = len(message)
     msg_entropy = 0
     for i in msg_freq:
-        msg_entropy -= msg_freq[i]/total * log2(msg_freq[i]/total)
+        msg_entropy -= msg_freq[i] / total * log2(msg_freq[i] / total)
     return msg_entropy
 
 
 if __name__ == "__main__":
-    for msg in '', 'aaaa', 'aaba', 'abcd', 'This is a short text.':
-        print('{:25}: {:8.3f} bits'.format(msg, entropy(msg)))
+    for msg in "", "aaaa", "aaba", "abcd", "This is a short text.":
+        print("{:25}: {:8.3f} bits".format(msg, entropy(msg)))
