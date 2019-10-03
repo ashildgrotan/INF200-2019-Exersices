@@ -93,7 +93,9 @@ def test_sort_reversed():
 
 def test_sort_all_equal():
     """Test that sorting handles data with identical elements."""
-    pass
+    test_data = [1, 1, 1]
+    sorted_data = bubble_sort(test_data)
+    assert sorted_data == [1, 1, 1]
 
 
 def test_sorting():
