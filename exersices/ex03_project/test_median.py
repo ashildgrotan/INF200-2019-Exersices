@@ -24,3 +24,8 @@ def median(data):
         if n % 2 == 1
         else 0.5 * (sorted_data[n // 2 - 1] + sorted_data[n // 2])
     )
+
+
+def test_median_of_single_element():
+    test_value = [randint(0, 10)]
+    assert median([test_value]) == test_value
