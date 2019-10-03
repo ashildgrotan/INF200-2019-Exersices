@@ -33,3 +33,7 @@ def test_median_of_single_element():
 
 def test_median_of_odd_number_of_elements():
     assert median([1, 2, 3]) == 2
+
+
+def test_median_of_even_number_of_elements():
+    assert median([1, 2, 4, 5]) == 3
