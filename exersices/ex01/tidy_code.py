@@ -4,8 +4,8 @@ INF200 EX01 task D.
 
 from random import randint
 
-__author__ = 'Åshild Grøtan'
-__email__ = 'ashigrot@nmbu.no'
+__author__ = "Åshild Grøtan"
+__email__ = "ashigrot@nmbu.no"
 
 
 def throw_dice():
@@ -23,7 +23,7 @@ def guess_number():
     """
     guess = 0
     while guess < 1:
-        guess = int(input('Your guess: '))
+        guess = int(input("Your guess: "))
     return guess
 
 
@@ -37,7 +37,7 @@ def check_guess(f, g):
     return f == g
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     right_guess = False
     points = 3
@@ -46,10 +46,10 @@ if __name__ == '__main__':
         your_guess = guess_number()
         right_guess = check_guess(dice, your_guess)
         if not right_guess:
-            print('Wrong, try again!')
+            print("Wrong, try again!")
             points -= 1
 
     if points > 0:
-        print('You won {} points.'.format(points))
+        print("You won {} points.".format(points))
     else:
-        print('You lost. Correct answer: {}.'.format(dice))
+        print("You lost. Correct answer: {}.".format(dice))
