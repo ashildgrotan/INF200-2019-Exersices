@@ -17,6 +17,15 @@ def throw_dice():
     return randint(1, 6)
 
 
+def make_players(num_players):
+    """
+    Makes a list with the positions for each player.
+    :param num_players: number of players in the game
+    :return: list with the positions for each player
+    """
+    return [0 for _ in range(num_players)]
+
+
 def check_position(position):
     """
     Takes current position and moves position if there are snakes or ladders.
@@ -30,9 +39,7 @@ def check_position(position):
         position = ladders[position]
     if position in snakes:
         position = snakes[position]
-
     return position
-
 
 
 def play_single_round(positions):
@@ -48,13 +55,21 @@ def play_single_round(positions):
         dice = throw_dice()
         positions[player] += dice
         positions[player] = check_position(positions[player])
+    return positions
 
 
-def check_finished():
+def check_finished(positions):
     """
     Checks if any of the players are on position 90 or more.
+    :param positions: Current positions
     :return: True or False
     """
+    win = False
+    for position in positions:
+        if position > 89:
+            win = True
+            break
+    return win
 
 
 def single_game(num_players):
@@ -71,6 +86,14 @@ def single_game(num_players):
     num_moves : int
         Number of moves the winning player needed to reach the goal
     """
+    positions = make_players(num_players)
+    turns = 0
+    win = False
+    while not win:
+        positions = play_single_round(positions)
+        turns += 1
+        win = check_finished(positions)
+    return turns
 
 
 def multiple_games(num_games, num_players):
@@ -89,6 +112,7 @@ def multiple_games(num_games, num_players):
     num_moves : list
         List with the numbedr of moves needed in each game.
     """
+    
 
 
 def multi_game_experiment(num_games, num_players, seed):
@@ -109,3 +133,7 @@ def multi_game_experiment(num_games, num_players, seed):
     num_moves : list
         List with the numbedr of moves needed in each game.
     """
+
+
+if __name__ == "__main__":
+    print(single_game(3))
