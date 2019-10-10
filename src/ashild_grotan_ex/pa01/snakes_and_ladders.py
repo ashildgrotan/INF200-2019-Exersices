@@ -6,7 +6,7 @@ __author__ = "Åshild Grøtan, Erik Heggelund"
 __email__ = "ashild.grotan@nmbu.no, erik.heggelund@nmbu.no"
 
 
-from random import randint
+from random import randint, seed
 
 
 def throw_dice():
@@ -110,12 +110,15 @@ def multiple_games(num_games, num_players):
     Returns
     -------
     num_moves : list
-        List with the numbedr of moves needed in each game.
+        List with the number of moves needed in each game.
     """
-    
+    games = []
+    for game in range(num_games):
+        games.append(single_game(num_players))
+    return games
 
 
-def multi_game_experiment(num_games, num_players, seed):
+def multi_game_experiment(num_games, num_players, sed):
     """
     Returns durations of a number of games when playing with given seed.
 
@@ -125,15 +128,24 @@ def multi_game_experiment(num_games, num_players, seed):
         Number of games to play
     num_players : int
         Number of players in the game
-    seed : int
+    sed : int
         Seed used to initialise the random number generator
 
     Returns
     -------
     num_moves : list
-        List with the numbedr of moves needed in each game.
+        List with the number of moves needed in each game.
     """
+    seed(sed)
+    games = []
+    for game in range(num_games):
+        games.append(single_game(num_players))
+    return games
 
 
 if __name__ == "__main__":
-    print(single_game(3))
+    print(multi_game_experiment(20, 3, 4))
+    print(multi_game_experiment(20, 3, 4))
+    print(multi_game_experiment(20, 3, 4))
+    print(multi_game_experiment(20, 3, 4))
+    print(multi_game_experiment(20, 3, 4))
