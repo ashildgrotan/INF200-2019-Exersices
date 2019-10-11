@@ -6,15 +6,17 @@ __author__ = "Åshild Grøtan, Erik Heggelund"
 __email__ = "ashild.grotan@nmbu.no, erik.heggelund@nmbu.no"
 
 
-from random import randint, seed
+import random
+from statistics import median, stdev, mean
+import matplotlib.pyplot as plt
 
 
 def throw_dice():
     """
     Throws dice
-    :return: Number from 1 to 6
+    :return: Number (int) from 1 to 6
     """
-    return randint(1, 6)
+    return random.randint(1, 6)
 
 
 def make_players(num_players):
@@ -118,7 +120,7 @@ def multiple_games(num_games, num_players):
     return games
 
 
-def multi_game_experiment(num_games, num_players, sed):
+def multi_game_experiment(num_games, num_players, seed):
     """
     Returns durations of a number of games when playing with given seed.
 
@@ -128,7 +130,7 @@ def multi_game_experiment(num_games, num_players, sed):
         Number of games to play
     num_players : int
         Number of players in the game
-    sed : int
+    seed : int
         Seed used to initialise the random number generator
 
     Returns
@@ -136,7 +138,7 @@ def multi_game_experiment(num_games, num_players, sed):
     num_moves : list
         List with the number of moves needed in each game.
     """
-    seed(sed)
+    random.seed(seed)
     games = []
     for game in range(num_games):
         games.append(single_game(num_players))
@@ -144,8 +146,11 @@ def multi_game_experiment(num_games, num_players, sed):
 
 
 if __name__ == "__main__":
-    print(multi_game_experiment(20, 3, 4))
-    print(multi_game_experiment(20, 3, 4))
-    print(multi_game_experiment(20, 3, 4))
-    print(multi_game_experiment(20, 3, 4))
-    print(multi_game_experiment(20, 3, 4))
+    games = multi_game_experiment(100, 4, 4)
+    print(f"Shortest game played: {min(games)}")
+    print(f"Longest game played: {max(games)}")
+    print(f"Median of duration of games played: {median(games)}")
+    print(f"Standard deviation of duration of games: {round(stdev(games), 2)}")
+    print(f"Mean duration of games played: {mean(games)}")
+
+    plt.hist(games)
