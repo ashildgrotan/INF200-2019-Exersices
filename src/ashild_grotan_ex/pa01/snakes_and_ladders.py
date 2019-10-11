@@ -153,10 +153,3 @@ if __name__ == "__main__":
     print(f"Standard deviation of duration of games: "
           f"{round(stdev(hundred_games), 2)}")
     print(f"Mean duration of games played: {mean(hundred_games)}")
-
-    plt.hist(hundred_games, bins='auto', color='#0504aa', histtype='step')
-    plt.xlabel('Turns')
-    plt.ylabel('Frequency')
-    plt.title('Turns per game histogram')
-    # Set a clean upper y-axis limit.
-    plt.show()
