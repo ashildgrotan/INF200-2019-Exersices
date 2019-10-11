@@ -146,11 +146,17 @@ def multi_game_experiment(num_games, num_players, seed):
 
 
 if __name__ == "__main__":
-    games = multi_game_experiment(100, 4, 4)
-    print(f"Shortest game played: {min(games)}")
-    print(f"Longest game played: {max(games)}")
-    print(f"Median of duration of games played: {median(games)}")
-    print(f"Standard deviation of duration of games: {round(stdev(games), 2)}")
-    print(f"Mean duration of games played: {mean(games)}")
+    hundred_games = multi_game_experiment(100, 4, 4)
+    print(f"Shortest game played: {min(hundred_games)}")
+    print(f"Longest game played: {max(hundred_games)}")
+    print(f"Median of duration of games played: {median(hundred_games)}")
+    print(f"Standard deviation of duration of games: "
+          f"{round(stdev(hundred_games), 2)}")
+    print(f"Mean duration of games played: {mean(hundred_games)}")
 
-    plt.hist(games)
+    plt.hist(hundred_games, bins='auto', color='#0504aa', histtype='step')
+    plt.xlabel('Turns')
+    plt.ylabel('Frequency')
+    plt.title('Turns per game histogram')
+    # Set a clean upper y-axis limit.
+    plt.show()
