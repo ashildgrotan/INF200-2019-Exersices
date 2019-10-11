@@ -6,15 +6,17 @@ __author__ = "Åshild Grøtan, Erik Heggelund"
 __email__ = "ashild.grotan@nmbu.no, erik.heggelund@nmbu.no"
 
 
-from random import randint
+import random
+from statistics import median, stdev, mean
+import matplotlib.pyplot as plt
 
 
 def throw_dice():
     """
     Throws dice
-    :return: Number from 1 to 6
+    :return: Number (int) from 1 to 6
     """
-    return randint(1, 6)
+    return random.randint(1, 6)
 
 
 def make_players(num_players):
@@ -110,9 +112,12 @@ def multiple_games(num_games, num_players):
     Returns
     -------
     num_moves : list
-        List with the numbedr of moves needed in each game.
+        List with the number of moves needed in each game.
     """
-    
+    games = []
+    for game in range(num_games):
+        games.append(single_game(num_players))
+    return games
 
 
 def multi_game_experiment(num_games, num_players, seed):
@@ -131,9 +136,21 @@ def multi_game_experiment(num_games, num_players, seed):
     Returns
     -------
     num_moves : list
-        List with the numbedr of moves needed in each game.
+        List with the number of moves needed in each game.
     """
+    random.seed(seed)
+    games = []
+    for game in range(num_games):
+        games.append(single_game(num_players))
+    return games
 
 
 if __name__ == "__main__":
-    print(single_game(3))
+    games = multi_game_experiment(100, 4, 4)
+    print(f"Shortest game played: {min(games)}")
+    print(f"Longest game played: {max(games)}")
+    print(f"Median of duration of games played: {median(games)}")
+    print(f"Standard deviation of duration of games: {round(stdev(games), 2)}")
+    print(f"Mean duration of games played: {mean(games)}")
+
+    plt.hist(games)
