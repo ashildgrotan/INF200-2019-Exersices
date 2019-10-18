@@ -7,8 +7,7 @@ __email__ = "ashild.grotan@nmbu.no, erik.heggelund@nmbu.no"
 
 
 import random
-from statistics import median, stdev, mean
-import matplotlib.pyplot as plt
+import numpy as np
 
 
 def throw_dice():
@@ -147,9 +146,10 @@ def multi_game_experiment(num_games, num_players, seed):
 
 if __name__ == "__main__":
     hundred_games = multi_game_experiment(100, 4, 4)
-    print(f"Shortest game played: {min(hundred_games)}")
-    print(f"Longest game played: {max(hundred_games)}")
-    print(f"Median of duration of games played: {median(hundred_games)}")
-    print(f"Standard deviation of duration of games: "
-          f"{round(stdev(hundred_games), 2)}")
-    print(f"Mean duration of games played: {mean(hundred_games)}")
+    print("Shortest game played: {}".format(min(hundred_games)))
+    print("Longest game played: {}".format(max(hundred_games)))
+    print("Median of duration of games played: {}"
+          .format(np.median(hundred_games)))
+    print("Standard deviation of duration of games: "
+          "{0:.2f}".format(np.std(hundred_games)))
+    print("Mean duration of games played: {}".format(np.mean(hundred_games)))
