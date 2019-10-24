@@ -1,4 +1,4 @@
-from exersices.ex01.letter_counts import letter_freq
+from src.ashild_grotan_ex.ex01.letter_counts import letter_freq
 from math import log2
 
 
