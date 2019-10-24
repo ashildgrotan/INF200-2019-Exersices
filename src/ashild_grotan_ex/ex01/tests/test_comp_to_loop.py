@@ -20,5 +20,5 @@ def is_square(x):
     return abs(sqrt(x) - int(sqrt(x))) < 1e-10
 
 
-def test_squares_by_loop_procedures_squares():
-    for number in squares_by_loop(50):
+# def test_squares_by_loop_procedures_squares():
+#    for number in squares_by_loop(50):
