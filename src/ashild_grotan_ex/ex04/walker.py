@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+"""
+ex04 task B: class Walker simulates a student's random walk home.
+"""
 
 __author__ = 'Åshild Grøtan'
 __email__ = 'ashild.grotan@nmbu.no'

@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+"""
+ex04 task A: two random number generator classes.
+"""
 
 __author__ = 'Åshild Grøtan'
 __email__ = 'ashild.grotan@nmbu.no'
@@ -24,7 +27,7 @@ class ListRand:
     """Random number generator based on a list of numbers.
     """
     def __init__(self, list_of_numbers):
-        self.random_list = list_of_numbers
+        self.random_list = list_of_numbers.copy()
         self.random = 0
 
     def rand(self):
@@ -42,7 +45,7 @@ if __name__ == "__main__":
     print(lcg.rand())
     print(lcg.rand())
 
-    lr = ListRand([1, 2, 3, 4])
+    lr = ListRand([54, 2, 8, 91])
     print(lr.rand())
     print(lr.rand())
     print(lr.rand())
